@@ -27,19 +27,49 @@ class Stats {
 		}
 	
 		double mean(std::vector<Z> &values) {
-			//Start your code here
+			Z values_mean = values[0];
+			double sum =0.0;
+			for(int i = 0; i < values.size(); i++) {
+				sum += values[i];
+			}
+			double mean = sum/values.size();
+			return mean;
 		}
-	
+
 		double variance(std::vector<Z> &values) {
-			//Start your code here
+			Z values_variance = values[0];
+			double sum = 0.0;
+			double mean = sum/values.size();
+			
+			for (int i = 0; i < values.size(); i++){
+				sum += (values[i] - mean) * (values[i] - mean);
+			}
+			double variance = sum / values.size();
+			return variance;
 		}
 	
 		double std_dev(std::vector<Z> &values) {
-			//Start your code here
+			Z values_std_dev = values[0];
+
+			double sum = 0.0;
+			double mean = sum/values.size();
+			for(int i = 0; i < values.size(); i++){
+				sum += (values[i] - mean)*(values[i] - mean);
+			}
+			double std_dev = sqrt(sum/values.size());
+			return std_dev;
 		}
 	
+		//QUESTION: How do I implement max in the histogram function? it doesn't want to recognize it.
 		void histogram(const std::vector<int> &values, 
 				std::vector<int> &histo) {
-			//Start your code here
-		}
+			int values_max = max(values);
+		        histo_resize(max);
+			for(int i = 0; i < values_max; i++){
+				histo[i] = 0;
+			}
+			for(int j = 0; j < values.size(); j++){
+				histo[j] += 1;
+			}
+		} 
 };
