@@ -39,6 +39,8 @@ class Stats {
 		double variance(std::vector<Z> &values) {
 			Z values_variance = values[0];
 			double sum = 0.0;
+			//TODO: Why don't you have something like double v_mean = mean(values); ??
+			//Bruh =, sum == 0 so 0/values.size() results in 0
 			double mean = sum/values.size();
 			
 			for (int i = 0; i < values.size(); i++){
@@ -56,6 +58,7 @@ class Stats {
 			for(int i = 0; i < values.size(); i++){
 				sum += (values[i] - mean)*(values[i] - mean);
 			}
+			//TODO: why don't you call variance then take the sqrt??
 			double std_dev = sqrt(sum/values.size());
 			return std_dev;
 		}
@@ -64,10 +67,12 @@ class Stats {
 		void histogram(const std::vector<int> &values, 
 				std::vector<int> &histo) {
 			int values_max = max(values);
+			//TODO: what is histo_resize?? Don't you mean histo.resize(max); ??
 		        histo_resize(max);
 			for(int i = 0; i < values_max; i++){
 				histo[i] = 0;
 			}
+			//TODO: this does not calculate a histogram
 			for(int j = 0; j < values.size(); j++){
 				histo[j] += 1;
 			}
