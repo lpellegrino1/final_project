@@ -33,6 +33,8 @@ class Stats {
 			for(int i = 0; i < values.size(); i++) {
 				sum += values[i];
 			}
+			//TODO: double mean when there is already a mean function?
+			//That's a bad idea
 			double mean = sum/values.size();
 			return mean;
 		}
@@ -45,6 +47,8 @@ class Stats {
 			for (int i = 0; i < values.size(); i++){
 				sum += (values[i] - v_mean) * (values[i] - v_mean);
 			}
+			//TODO: double variance when there is already a variance function?
+			//That's a bold move
 			double variance = sum / values.size();
 			return variance;
 		}
@@ -53,6 +57,8 @@ class Stats {
 			Z values_std_dev = values[0];
 
 			double var = variance(values);
+			//TODO: dude man, your complier is probably getting confused
+			// between std_dev the function, and std_dev the variable
 			double std_dev = sqrt(var);
 			return std_dev;
 		}
@@ -65,6 +71,10 @@ class Stats {
 			for(int i = 0; i < values_max; ++i){
 				histo[i] = 0;
 			}
+			//TODO: In a histogram, you need to count the frequency of the
+			// numbers in values, yet, here you are not accessing the
+			// values vector (hint: histo[values[i]] can count the 
+			// frequency of values)
 			for(int j = 0; j < values.size(); ++j){
 				histo[j] += 1;
 			}
