@@ -49,6 +49,7 @@ int main() {
 	std::cout << "Ans:5.75" << std::endl;
 
 
+	//QUESTION:: Why arent my tests for variance and std_dev running?
 	//tests for the variance method
 	float sigma2_alternate = IntStats.variance(simple_alternate);
 	std::cout << sigma2_alternate << std::endl;
@@ -57,7 +58,7 @@ int main() {
 
 	float sigma2_odds = IntStats.variance(simple_odds);
 	std::cout << sigma2_odds << std::endl;
-	std::cout << "Ans :  " << std::endl;
+	std::cout << "Ans : 9.07 " << std::endl;
 	
 
 
@@ -67,14 +68,15 @@ int main() {
 	std::cout << sigma_alternate << std::endl;
 	std::cout << "Ans: 0.5" << std::endl;
 	
-	float sigma_odds = IntStats.std_dev(simple_alternate);
+	float sigma_odds = IntStats.std_dev(simple_odds);
 	std::cout << sigma_odds << std::endl;
-	std::cout << "Ans :   "<< std::endl;
+	std::cout << "Ans :3.01   "<< std::endl;
 
-					//My tests dont seem to run, even though they show no errors.  Even the ones you wrote, which makes me worried about my Stats code
+	
+					
 
 //Need help with histogram function
-/*
+
 	
 	//Tests for the histogram method
 	
@@ -90,7 +92,7 @@ int main() {
 	print_vector(hist);
 	std::cout << "Ans: " << std::endl;
 	
-*/
+
 
 	return 0;
 }

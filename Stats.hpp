@@ -26,17 +26,17 @@ class Stats {
 			return data_max;
 		}
 	
-		//attempted fixes of these functions. having trouble with tests from main for variance and std_dev
+		//attempted fixes of these functions. 
+		//changed variable names from function names to help confusion
+		//variance and std dev tests still do not run...
 		double mean(std::vector<Z> &values) {
 			Z values_mean = values[0];
 			double sum =0.0;
 			for(int i = 0; i < values.size(); i++) {
 				sum += values[i];
 			}
-			//TODO: double mean when there is already a mean function?
-			//That's a bad idea
-			double mean = sum/values.size();
-			return mean;
+			double meann = sum/values.size();
+			return meann;
 		}
 
 		double variance(std::vector<Z> &values) {
@@ -47,34 +47,29 @@ class Stats {
 			for (int i = 0; i < values.size(); i++){
 				sum += (values[i] - v_mean) * (values[i] - v_mean);
 			}
-			//TODO: double variance when there is already a variance function?
-			//That's a bold move
-			double variance = sum / values.size();
-			return variance;
+			double var = sum / values.size();
+			return var;
 		}
 	
 		double std_dev(std::vector<Z> &values) {
 			Z values_std_dev = values[0];
 
 			double var = variance(values);
-			//TODO: dude man, your complier is probably getting confused
-			// between std_dev the function, and std_dev the variable
-			double std_dev = sqrt(var);
-			return std_dev;
+			double stddev = sqrt(var);
+			return stddev;
 		}
 	
-	//histogram incomplete	
+	//histogram incomplete; made changes to histo[value[i]]
+	//should i also change histo[j] to histo[values[j]], or is just the i part 
+	//counting the frequency while the j moves it through the values? If thats the 
+	//case should I embed the second for loop in the first?	
 		void histogram(const std::vector<int> &values, 
 				std::vector<int> &histo) {
-			int values_max = max(values);
+			int values_max = max(values);//getting an error with max(values).
 		        histo.resize(values_max);
 			for(int i = 0; i < values_max; ++i){
-				histo[i] = 0;
+				histo[values[i]] = 0;
 			}
-			//TODO: In a histogram, you need to count the frequency of the
-			// numbers in values, yet, here you are not accessing the
-			// values vector (hint: histo[values[i]] can count the 
-			// frequency of values)
 			for(int j = 0; j < values.size(); ++j){
 				histo[j] += 1;
 			}
